@@ -1,8 +1,8 @@
-.bg-dirty-purple {background-color: Indigo;}
+.bg-dirty-purple {background-color: rgb(63, 154, 207);}
 .btn-dirty-purple 
 { 
-  color: #A179BE;
-  background-color: Indigo;
+  color: #c8c7db;
+  background-color: rgb(66, 101, 218);
 }
 .btn-dirty-purple:hover 
 {
