@@ -7,7 +7,7 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage, PostbackE
 
 import configparser
 
-from custom_models import utils, PhoebeTalks, PhoebeFlex
+from custom_models import utils, PhoebeTalks, PhoebeFlex, CallDatabase
 
 app = Flask(__name__)
 
@@ -23,6 +23,11 @@ handler = WebhookHandler(config.get('line-bot', 'channel_secret'))
 @app.route("/")
 def home():
     return render_template("home.html")
+
+@app.route("/show_records")
+def show_records():
+    python_records = CallDatabase.web_select_overall()
+    return render_template("show_records.html", html_records=python_records)
 
 
 # 接收 LINE 的資訊
