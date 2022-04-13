@@ -21,7 +21,7 @@ line_bot_api = LineBotApi(config.get('line-bot', 'channel_access_token'))
 # 請 LINE 幫我們存入資料
 def insert_record(event):
     
-    if '草泥馬訓練紀錄' in event.message.text:
+    if '訓練紀錄' in event.message.text:
         
         try:
             record_list = utils.prepare_record(event.message.text)
