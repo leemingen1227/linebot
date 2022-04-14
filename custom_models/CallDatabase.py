@@ -27,7 +27,7 @@ def web_select_overall():
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     cursor = conn.cursor()
     
-    postgres_select_query = f"""SELECT * FROM alpaca_training ORDER BY record_no;"""
+    postgres_select_query = f"""SELECT * FROM training ORDER BY record_no;"""
     
     cursor.execute(postgres_select_query)
     
