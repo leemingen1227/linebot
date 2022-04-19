@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from crypt import methods
 import os
 from flask import Flask, request, abort, render_template
 from linebot import LineBotApi, WebhookHandler
@@ -28,6 +29,17 @@ def home():
 def show_records():
     python_records = CallDatabase.web_select_overall()
     return render_template("show_records.html", html_records=python_records)
+
+@app.route("/select_records", methods=['GET', 'POST'])
+def select_records():
+    if request.method == 'POST':
+        print(request.form)
+        python_records = CallDatabase.web_select_specific(request.form)
+        return render_template("show_records.html", html_records=python_records)
+    else:
+        return render_template("select_records.html")
+
+
 
 
 # 接收 LINE 的資訊
