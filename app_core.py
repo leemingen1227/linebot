@@ -37,7 +37,7 @@ def select_records():
         python_records = CallDatabase.web_select_specific(request.form)
         return render_template("show_records.html", html_records=python_records)
     else:
-        return render_template("select_records.html")
+        return render_template("select_records_comfortable.html")
 
 
 
