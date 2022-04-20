@@ -30,7 +30,7 @@ def show_records():
     python_records = CallDatabase.web_select_overall()
     return render_template("show_records.html", html_records=python_records)
 
-@app.route("/select_records", methods=['GET', 'POST'])
+@app.route("/select_records_comfortable", methods=['GET', 'POST'])
 def select_records():
     if request.method == 'POST':
         print(request.form)
