@@ -30,14 +30,17 @@ def show_records():
     python_records = CallDatabase.web_select_overall()
     return render_template("show_records.html", html_records=python_records)
 
+
 @app.route("/select_records_comfortable", methods=['GET', 'POST'])
-def select_records():
+def select_records_comfortable():
     if request.method == 'POST':
         print(request.form)
         python_records = CallDatabase.web_select_specific(request.form)
         return render_template("show_records.html", html_records=python_records)
     else:
-        return render_template("select_records_comfortable.html")
+        table = CallDatabase.web_select_overall()
+        uniques = utils.get_unique(table)
+        return render_template("select_records_comfortable.html", uniques=uniques)
 
 
 
